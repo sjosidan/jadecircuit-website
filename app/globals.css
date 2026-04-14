@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { background-color: #132a23; color: #e7efea; }
+
+html { scroll-behavior: smooth; }
+
+.circuit-bg {
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(52, 211, 153, 0.28), transparent 50%),
+    radial-gradient(circle at 85% 60%, rgba(16, 185, 129, 0.18), transparent 55%),
+    linear-gradient(180deg, #1a3a30 0%, #132a23 60%, #0f2520 100%);
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(52, 211, 153, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(52, 211, 153, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
