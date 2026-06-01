@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "JadeCircuit — HarmonyOS development from Shanghai, EU-ready from Estonia",
+  title: "JadeCircuit — Cross-platform app & full-stack studio · EU-registered",
   description:
-    "JadeCircuit is a HarmonyOS-first development studio based in Shanghai. Estonian e-Residency company serving clients worldwide — HarmonyOS NEXT, Android, iOS, and web.",
+    "JadeCircuit is a product studio building cross-platform mobile apps (iOS & Android) and full-stack web, plus the APIs and integrations behind them. Swedish founder, Estonian-registered, EU-ready — with rare HarmonyOS NEXT depth as a specialty.",
   openGraph: {
     title: "JadeCircuit",
     description:
-      "HarmonyOS development from Shanghai — EU-ready from Estonia.",
+      "Cross-platform apps & full-stack engineering — EU-registered, EU-ready.",
     url: "https://jadecircuit.com",
     siteName: "JadeCircuit",
     type: "website",

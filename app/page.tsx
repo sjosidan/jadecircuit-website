@@ -54,36 +54,36 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    name: "Viking Cup 2026",
+    kind: "client",
+    platforms: ["ios", "android", "web", "hmos"],
+    img: "/projects/vikingcup.png",
+    icon: "/app-icons/vikingcup.png",
+    imgPad: "p-2 sm:p-3",
+    en: {
+      blurb:
+        "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
+    },
+    zh: {
+      blurb:
+        "为一项国际足球赛事打造的赛事平台与配套移动端 App — 全栈 Web 平台与跨平台 App（iOS、Android 等）共享同一套 API，可干净对接集成，并为赛事周扩展承载。",
+    },
+  },
+  {
     name: "Mongi",
     kind: "product",
-    platforms: ["hmos", "android", "ios"],
+    platforms: ["ios", "android", "hmos"],
     img: "/projects/mongi.png",
     icon: "/app-icons/mongi.png",
     imgPad: "p-2 sm:p-3",
     link: "https://mongi.app",
     en: {
       blurb:
-        "A daily puzzle game with 18 hand-crafted word, logic and pattern puzzles — a fresh set every day, with streaks and rest days. Cross-platform across HarmonyOS, Android and iOS, fully local-first with no account required.",
+        "A daily puzzle game with 18 hand-crafted word, logic and pattern puzzles — a fresh set every day, with streaks and rest days. Cross-platform across iOS, Android and HarmonyOS, fully local-first with no account required.",
     },
     zh: {
       blurb:
-        "每日谜题游戏，包含 18 款手工打造的词汇、逻辑与图形谜题，每天更新一组，支持连续打卡与休息日。跨 HarmonyOS、Android、iOS 平台，完全本地优先，无需注册账号。",
-    },
-  },
-  {
-    name: "Viking Cup 2026",
-    kind: "client",
-    platforms: ["hmos", "android", "ios", "web"],
-    img: "/projects/vikingcup.png",
-    icon: "/app-icons/vikingcup.png",
-    imgPad: "p-2 sm:p-3",
-    en: {
-      blurb:
-        "Tournament platform and companion app for an international football event in Shanghai. Full-stack web with a cross-platform mobile app sharing one API.",
-    },
-    zh: {
-      blurb:
-        "为上海国际足球赛事打造的赛事平台与配套 App。全栈 Web 与跨平台移动端共享同一套 API。",
+        "每日谜题游戏，包含 18 款手工打造的词汇、逻辑与图形谜题，每天更新一组，支持连续打卡与休息日。跨 iOS、Android、HarmonyOS 平台，完全本地优先，无需注册账号。",
     },
   },
   {
@@ -111,27 +111,27 @@ const PROJECTS: Project[] = [
     imgPad: "p-10 sm:p-14",
     en: {
       blurb:
-        "A HarmonyOS NEXT input method editor for Nordic languages — Swedish, Danish, Norwegian, Finnish, Icelandic — with on-device dictionary suggestions and autocorrect.",
+        "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS NEXT.",
     },
     zh: {
       blurb:
-        "面向鸿蒙 NEXT 的北欧语言输入法，支持瑞典语、丹麦语、挪威语、芬兰语与冰岛语，本地词典联想与自动纠错。",
+        "支持五种北欧语言的输入法 — 瑞典语、丹麦语、挪威语、芬兰语与冰岛语，提供本地词典联想与自动纠错，基于鸿蒙 NEXT 原生开发。",
     },
   },
 ];
 
 const SERVICES: Record<Lang, { title: string; body: string }[]> = {
   en: [
-    { title: "HarmonyOS NEXT apps", body: "Native ArkTS / ArkUI apps for Huawei devices — phones, tablets, foldables, wearables." },
-    { title: "Cross-platform mobile", body: "Flutter apps that ship to HarmonyOS, Android, and iOS from a single codebase." },
-    { title: "Full-stack web", body: "Next.js, React, TypeScript — paired with Postgres, Prisma, and modern deploys." },
-    { title: "Backend & infra", body: "Go and Node APIs, SQLite / Postgres, Docker, Caddy, self-hosted on reliable cloud." },
+    { title: "Cross-platform mobile", body: "iOS and Android from a single Flutter codebase — native feel, multi-language localization, and store release handled." },
+    { title: "Full-stack web", body: "Next.js, React and TypeScript front-ends with Postgres / Prisma data layers and modern, reliable deploys." },
+    { title: "Backend, APIs & integrations", body: "Go and Node APIs on SQLite / Postgres and Docker — including integrating with existing platforms and third-party services, with careful handling of user data." },
+    { title: "HarmonyOS NEXT", body: "A specialty when you need it: native ArkTS / ArkUI apps for Huawei phones, tablets, foldables and wearables." },
   ],
   zh: [
-    { title: "鸿蒙 NEXT 应用", body: "面向华为设备的原生 ArkTS / ArkUI 应用 — 手机、平板、折叠屏与可穿戴设备。" },
-    { title: "跨平台移动端", body: "基于 Flutter 的应用，同一份代码同时发布到鸿蒙、安卓与 iOS。" },
-    { title: "全栈 Web", body: "Next.js、React、TypeScript，搭配 Postgres、Prisma 与现代化部署方案。" },
-    { title: "后端与基础设施", body: "Go 与 Node 接口、SQLite / Postgres、Docker、Caddy，自托管于可靠云环境。" },
+    { title: "跨平台移动端", body: "同一份 Flutter 代码同时发布到 iOS 与 Android — 原生质感、多语言本地化，并负责上架发布。" },
+    { title: "全栈 Web", body: "Next.js、React 与 TypeScript 前端，搭配 Postgres / Prisma 数据层与现代、可靠的部署。" },
+    { title: "后端、API 与系统集成", body: "基于 SQLite / Postgres 与 Docker 的 Go 与 Node 接口 — 包括与既有平台及第三方服务的对接集成，并谨慎处理用户数据。" },
+    { title: "鸿蒙 NEXT", body: "在你需要时的一项专长：面向华为手机、平板、折叠屏与可穿戴设备的原生 ArkTS / ArkUI 应用。" },
   ],
 };
 
@@ -139,25 +139,25 @@ const COPY = {
   en: {
     nav: { about: "About", work: "Work", services: "Services", contact: "Contact" },
     email: "hello@jadecircuit.com",
-    heroTitle1: "A HarmonyOS-first studio —",
-    heroTitle2: " building products and shipping for clients.",
+    heroTitle1: "We build cross-platform apps and the backends behind them —",
+    heroTitle2: " our own products, and select client work.",
     heroSub:
-      "JadeCircuit is a small indie studio focused on HarmonyOS NEXT. We mostly build and publish our own apps, and take on select client projects where deep HarmonyOS experience matters. Based in Shanghai · Estonian e-Residency company · EU-ready.",
-    ctaPrimary: "See the apps",
+      "JadeCircuit is a small studio that designs, builds and ships mobile and web products — iOS, Android and full-stack web, with the APIs and integrations behind them. Swedish founder · Estonian-registered company · straightforward international contracts and invoicing. We also bring rare, first-hand HarmonyOS NEXT experience when a project needs it.",
+    ctaPrimary: "See the work",
     ctaSecondary: "Start a project",
     aboutLabel: "About",
-    aboutTitle: "A rare bridge into the HarmonyOS ecosystem.",
+    aboutTitle: "A small studio that ships — end to end.",
     aboutP1:
-      "We're among the few foreign developers working deep inside Huawei's HarmonyOS NEXT platform — from Shanghai, with first-hand experience of the tools, the store, and the ecosystem as it evolves. Most of what we make is our own: indie apps we design, build and publish end-to-end.",
+      "JadeCircuit is led by a Swedish developer building mobile and web products end to end — design, frontend, backend and release. Most of what we make is our own: indie apps we design, build and publish ourselves, which keeps our cross-platform and backend skills sharp for the client work we take on.",
     aboutP2:
-      "Alongside our own products we take on select client work when the fit is right — HarmonyOS-first, but equally comfortable on Android, iOS, and the web. The company is registered in Estonia via e-Residency, so contracts, invoicing, and VAT for EU clients are handled cleanly from the European side.",
+      "The company is registered in Estonia, giving clients a stable European base for clean, straightforward international contracts and invoicing — wherever in the world the project is. We currently work from Shanghai, which also gives us something rare: deep, first-hand experience inside Huawei's HarmonyOS NEXT platform, a specialty we offer on top of the usual iOS, Android and web.",
     workLabel: "Selected work",
     workTitle: "Products & projects.",
     servicesLabel: "Services",
     servicesTitle: "What we build for clients.",
     contactLabel: "Contact",
     contactTitle: "Let's build something.",
-    contactSub: "Inquiries, collaborations, HarmonyOS questions — drop a message.",
+    contactSub: "Inquiries, collaborations, new projects — drop a message.",
     footerCopy: "JadeCircuit OÜ · Estonia",
     linkYouTube: "YouTube",
     linkBilibili: "Bilibili",
@@ -167,25 +167,25 @@ const COPY = {
   zh: {
     nav: { about: "关于", work: "作品", services: "服务", contact: "联系" },
     email: "hello@jadecircuit.com",
-    heroTitle1: "鸿蒙优先的开发工作室 —",
-    heroTitle2: " 自研产品，服务客户。",
+    heroTitle1: "我们打造跨平台应用，以及背后的后端 —",
+    heroTitle2: " 自研产品，也承接精选客户项目。",
     heroSub:
-      "JadeCircuit 是一家专注于鸿蒙 NEXT 的小型独立工作室。我们主要自研并发布自己的应用，同时承接少量需要深度鸿蒙经验的客户项目。坐标上海，爱沙尼亚电子居民注册公司，面向欧盟合规开票。",
+      "JadeCircuit 是一家小型工作室，专注于从设计、开发到发布完整交付移动与 Web 产品 — iOS、Android 与全栈 Web，以及背后的 API 与系统集成。瑞典创始人 · 爱沙尼亚注册公司 · 国际合同与开票简洁顺畅。在项目需要时，我们还能提供少见的鸿蒙 NEXT 一线实战经验。",
     ctaPrimary: "查看作品",
     ctaSecondary: "开启合作",
     aboutLabel: "关于我们",
-    aboutTitle: "鸿蒙生态中难得的一座桥梁。",
+    aboutTitle: "一家从头到尾完整交付的小型工作室。",
     aboutP1:
-      "我们是少数深入华为鸿蒙 NEXT 平台的外籍开发者 — 身处上海，直接参与工具链、应用市场与生态的演进。我们做的大多数都是自己的东西：从设计、开发到发布，一条龙完成的独立应用。",
+      "JadeCircuit 由一位瑞典开发者主理，从设计、前端、后端到发布，完整地打造移动与 Web 产品。我们做的大多数都是自研的独立应用 — 自己设计、开发并发布，这也让我们在跨平台与后端上的能力始终保持锋利，用于承接的客户项目。",
     aboutP2:
-      "在自研产品之外，我们在合适的时候也接一些客户项目 — 以鸿蒙为主，但同样可以胜任安卓、iOS 与 Web。公司通过电子居民身份在爱沙尼亚注册，因此欧盟客户的合同、开票与增值税都在欧洲侧干净地处理。",
+      "公司注册于爱沙尼亚，为客户提供一个稳定的欧洲主体 — 无论项目身处世界何地，国际合同与开票都简洁顺畅。我们目前在上海工作，这也带来一项难得的能力：深入华为鸿蒙 NEXT 平台的一线实战经验 — 在常规的 iOS、Android 与 Web 之外，我们额外提供这项专长。",
     workLabel: "精选作品",
     workTitle: "产品与项目。",
     servicesLabel: "服务",
     servicesTitle: "为客户提供的服务。",
     contactLabel: "联系我们",
     contactTitle: "一起做点东西吧。",
-    contactSub: "业务咨询、合作或任何关于鸿蒙的问题 — 欢迎来信。",
+    contactSub: "业务咨询、合作或新项目 — 欢迎来信。",
     footerCopy: "JadeCircuit OÜ · 爱沙尼亚",
     linkYouTube: "YouTube",
     linkBilibili: "哔哩哔哩",
