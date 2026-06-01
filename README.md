@@ -15,24 +15,21 @@ npm run dev          # http://localhost:3000
 npm run build        # outputs to ./out
 ```
 
-## Deploy to Caddy server
+## Deploy
 
-Copy the contents of `out/` into your Caddy web root:
+Hosted on **GitHub Pages** — just push to `main` and it deploys itself:
 
 ```bash
-rsync -avz --delete out/ user@server:/var/www/jadecircuit.com/
+git push          # triggers the deploy
 ```
 
-Example Caddyfile:
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds the static
+export and publishes `out/` to Pages on every push to `main`. No manual steps.
 
-```
-jadecircuit.com {
-    root * /var/www/jadecircuit.com
-    encode gzip zstd
-    try_files {path} {path}/ {path}.html /index.html
-    file_server
-}
-```
+- Custom domain `jadecircuit.com` is set via `public/CNAME` (don't delete it —
+  it keeps the domain attached on each deploy).
+- DNS lives on Cloudflare: apex + `www` are `CNAME → sjosidan.github.io`,
+  **DNS only** (grey cloud), relying on CNAME flattening at the apex.
 
 ## Swapping project screenshots
 
