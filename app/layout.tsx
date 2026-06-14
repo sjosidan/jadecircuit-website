@@ -67,7 +67,10 @@ const ORG_JSONLD = {
     "Android",
     "Full-stack web development",
   ],
-  sameAs: ["https://space.bilibili.com/3492972752538368"],
+  sameAs: [
+    "https://www.youtube.com/@bobjohansson",
+    "https://space.bilibili.com/3492972752538368",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -519,6 +519,7 @@ export default function Page() {
             <span>© {new Date().getFullYear()} {t.footerCopy}</span>
           </div>
           <div className="flex items-center gap-5 text-sm text-gray-300">
+            <a href="https://www.youtube.com/@bobjohansson" target="_blank" rel="noreferrer" className="hover:text-jade-300">{t.linkYouTube}</a>
             <a href="https://space.bilibili.com/3492972752538368" target="_blank" rel="noreferrer" className="hover:text-jade-300">{t.linkBilibili}</a>
             <a href={`mailto:${t.email}`} className="hover:text-jade-300">{t.linkEmail}</a>
           </div>
