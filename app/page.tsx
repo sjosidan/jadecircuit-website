@@ -487,6 +487,12 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-sm text-gray-300">
+            {lang === "zh" ? "需要把 App 带到华为设备？" : "Building for Huawei devices?"}{" "}
+            <a href="/harmonyos-app-development/" className="font-medium text-jade-300 underline hover:text-jade-200">
+              {lang === "zh" ? "查看面向国际公司的鸿蒙 App 开发服务 ↗" : "HarmonyOS app development for international companies ↗"}
+            </a>
+          </p>
         </div>
       </section>
 
