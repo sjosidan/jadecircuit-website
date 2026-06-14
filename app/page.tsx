@@ -49,7 +49,7 @@ type Project = {
   imgPad?: string;
   frame?: "phone";
   frameAspect?: string;
-  tags?: string[];
+  tags?: { label: string; icon: string }[];
   link?: string;
   en: ProjectCopy;
   zh: ProjectCopy;
@@ -150,38 +150,6 @@ function Carousel({
 
 const PROJECTS: Project[] = [
   {
-    name: "Viking Cup 2026",
-    kind: "client",
-    platforms: ["ios", "android", "web", "hmos"],
-    images: ["/projects/vikingcup-1.png", "/projects/vikingcup-2.png", "/projects/vikingcup-3.png"],
-    icon: "/app-icons/vikingcup.png",
-    imgPad: "p-3",
-    en: {
-      blurb:
-        "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
-    },
-    zh: {
-      blurb:
-        "为一项国际足球赛事打造的赛事平台与配套移动端 App — 全栈 Web 平台与跨平台 App（iOS、Android 等）共享同一套 API，可干净对接集成，并为赛事周扩展承载。",
-    },
-  },
-  {
-    name: "Museum LED Ticker",
-    kind: "client",
-    platforms: ["led", "web"],
-    images: ["/projects/museum-led-1.jpg", "/projects/museum-led-2.jpg", "/projects/museum-led-3.jpg"],
-    imgPad: "p-0",
-    tags: ["Integrated AI", "Electron", "macOS"],
-    en: {
-      blurb:
-        "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron on a Mac mini — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
-    },
-    zh: {
-      blurb:
-        "我为某当代艺术馆一件大型艺术装置所做的部分：一套实时 LED 新闻滚动系统。基于 Fastify + SQLite 的服务端定时抓取全球新闻源，集成 AI 对每条头条进行分类与打标签，并通过 SSE 实时推送到浏览器显示端（以 Electron 封装，运行于 Mac mini），驱动展厅的 LED 屏。含可检索的历史归档与全屏 Kiosk 模式。",
-    },
-  },
-  {
     name: "Mongi",
     kind: "product",
     platforms: ["ios", "android", "hmos"],
@@ -196,6 +164,41 @@ const PROJECTS: Project[] = [
     zh: {
       blurb:
         "每日谜题游戏，包含 18 款手工打造的词汇、逻辑与图形谜题，每天更新一组，支持连续打卡与休息日。跨 iOS、Android、HarmonyOS 平台，完全本地优先，无需注册账号。",
+    },
+  },
+  {
+    name: "Museum LED Ticker",
+    kind: "client",
+    platforms: ["led", "web"],
+    images: ["/projects/museum-led-1.jpg", "/projects/museum-led-2.jpg", "/projects/museum-led-3.jpg"],
+    imgPad: "p-0",
+    tags: [
+      { label: "Integrated AI", icon: "/tags/ai.svg" },
+      { label: "Electron", icon: "/tags/electron.svg" },
+    ],
+    en: {
+      blurb:
+        "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron on a Mac mini — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
+    },
+    zh: {
+      blurb:
+        "我为某当代艺术馆一件大型艺术装置所做的部分：一套实时 LED 新闻滚动系统。基于 Fastify + SQLite 的服务端定时抓取全球新闻源，集成 AI 对每条头条进行分类与打标签，并通过 SSE 实时推送到浏览器显示端（以 Electron 封装，运行于 Mac mini），驱动展厅的 LED 屏。含可检索的历史归档与全屏 Kiosk 模式。",
+    },
+  },
+  {
+    name: "Viking Cup 2026",
+    kind: "client",
+    platforms: ["ios", "android", "web", "hmos"],
+    images: ["/projects/vikingcup-1.png", "/projects/vikingcup-2.png", "/projects/vikingcup-3.png"],
+    icon: "/app-icons/vikingcup.png",
+    imgPad: "p-3",
+    en: {
+      blurb:
+        "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
+    },
+    zh: {
+      blurb:
+        "为一项国际足球赛事打造的赛事平台与配套移动端 App — 全栈 Web 平台与跨平台 App（iOS、Android 等）共享同一套 API，可干净对接集成，并为赛事周扩展承载。",
     },
   },
   {
@@ -432,10 +435,11 @@ export default function Page() {
                     ))}
                     {p.tags?.map((tg) => (
                       <span
-                        key={tg}
-                        className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs text-amber-100"
+                        key={tg.label}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-jade-500/30 bg-ink-700/50 px-2.5 py-1 text-xs text-jade-100"
                       >
-                        {tg}
+                        <Image src={tg.icon} alt="" width={12} height={12} className="opacity-90" />
+                        {tg.label}
                       </span>
                     ))}
                   </div>
