@@ -38,7 +38,6 @@ export function SiteFooter() {
         </a>
         <div className="flex items-center gap-5 text-sm text-gray-300">
           <a href="/harmonyos-app-development/" className="hover:text-jade-300">HarmonyOS</a>
-          <a href="https://www.youtube.com/@bobjohansson" target="_blank" rel="noreferrer" className="hover:text-jade-300">YouTube</a>
           <a href={`mailto:${EMAIL}`} className="hover:text-jade-300">Email</a>
         </div>
       </div>

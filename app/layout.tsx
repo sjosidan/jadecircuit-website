@@ -53,7 +53,6 @@ const ORG_JSONLD = {
   description:
     "Cross-platform app and full-stack studio. HarmonyOS NEXT, iOS, Android and web — an EU-registered partner that helps international companies build and publish HarmonyOS apps.",
   email: "hello@jadecircuit.com",
-  founder: { "@type": "Person", name: "Bob Johansson" },
   address: { "@type": "PostalAddress", addressCountry: "EE" },
   areaServed: "Worldwide",
   knowsAbout: [
@@ -68,10 +67,7 @@ const ORG_JSONLD = {
     "Android",
     "Full-stack web development",
   ],
-  sameAs: [
-    "https://www.youtube.com/@bobjohansson",
-    "https://space.bilibili.com/3492972752538368",
-  ],
+  sameAs: ["https://space.bilibili.com/3492972752538368"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

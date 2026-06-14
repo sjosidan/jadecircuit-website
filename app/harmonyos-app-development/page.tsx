@@ -166,20 +166,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* WATCH */}
-      <section className="border-b border-jade-500/10 bg-ink-900/40">
-        <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 sm:py-20">
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl">See HarmonyOS development in action</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-gray-200">
-            We share real HarmonyOS and app-development work on our channel — a look at how this actually
-            gets built.
-          </p>
-          <a href="https://www.youtube.com/@bobjohansson" target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-md border border-jade-400/40 px-5 py-3 text-sm font-semibold text-jade-200 hover:bg-jade-400/10">
-            Watch on YouTube ↗
-          </a>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="border-b border-jade-500/10">
         <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">

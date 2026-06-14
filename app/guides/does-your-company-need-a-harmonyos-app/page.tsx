@@ -28,7 +28,7 @@ const ARTICLE_JSONLD = {
   image: "https://jadecircuit.com/og.png",
   datePublished: "2026-06-14",
   dateModified: "2026-06-14",
-  author: { "@type": "Person", name: "Bob Johansson" },
+  author: { "@type": "Organization", name: "JadeCircuit" },
   publisher: {
     "@type": "Organization",
     name: "JadeCircuit",
