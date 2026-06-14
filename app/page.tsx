@@ -48,6 +48,8 @@ type Project = {
   icon?: string;
   imgPad?: string;
   frame?: "phone";
+  frameAspect?: string;
+  tags?: string[];
   link?: string;
   en: ProjectCopy;
   zh: ProjectCopy;
@@ -57,12 +59,14 @@ function Carousel({
   images,
   alt,
   frame,
+  frameAspect,
   imgPad,
   delay,
 }: {
   images: string[];
   alt: string;
   frame?: "phone";
+  frameAspect?: string;
   imgPad?: string;
   delay: number;
 }) {
@@ -113,7 +117,10 @@ function Carousel({
       onTouchEnd={onTouchEnd}
     >
       {frame ? (
-        <div className="relative h-[94%] aspect-[9/19.5] rounded-[1.6rem] bg-black p-[3px] shadow-2xl shadow-black/60 ring-1 ring-white/15">
+        <div
+          className="relative h-[94%] rounded-[1.6rem] bg-black p-[3px] shadow-2xl shadow-black/60 ring-1 ring-white/15"
+          style={{ aspectRatio: frameAspect ?? "9 / 19.5" }}
+        >
           <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
             {layers}
           </div>
@@ -149,6 +156,7 @@ const PROJECTS: Project[] = [
     images: ["/projects/vikingcup-1.jpg", "/projects/vikingcup-2.jpg", "/projects/vikingcup-3.jpg"],
     icon: "/app-icons/vikingcup.png",
     frame: "phone",
+    frameAspect: "0.425",
     en: {
       blurb:
         "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
@@ -164,6 +172,7 @@ const PROJECTS: Project[] = [
     platforms: ["led", "web"],
     images: ["/projects/museum-led-1.jpg", "/projects/museum-led-2.jpg", "/projects/museum-led-3.jpg"],
     imgPad: "p-0",
+    tags: ["Integrated AI", "Electron", "Fastify", "SSE", "SQLite", "Kiosk"],
     en: {
       blurb:
         "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
@@ -180,6 +189,7 @@ const PROJECTS: Project[] = [
     images: ["/projects/mongi-1.jpg", "/projects/mongi-2.jpg", "/projects/mongi-3.jpg"],
     icon: "/app-icons/mongi.png",
     frame: "phone",
+    frameAspect: "0.46",
     link: "https://mongi.app",
     en: {
       blurb:
@@ -197,6 +207,7 @@ const PROJECTS: Project[] = [
     images: ["/projects/swiftrates-1.jpg", "/projects/swiftrates-2.jpg", "/projects/swiftrates-3.jpg"],
     icon: "/app-icons/swiftrates.png",
     frame: "phone",
+    frameAspect: "0.608",
     en: {
       blurb:
         "A currency converter covering 170+ currencies, backed by a Go API with historical rates, geo-aware caching, and live refresh.",
@@ -213,6 +224,7 @@ const PROJECTS: Project[] = [
     images: ["/projects/nordickeys-1.jpg", "/projects/nordickeys-2.jpg", "/projects/nordickeys-3.jpg"],
     icon: "/app-icons/nordickeys.png",
     frame: "phone",
+    frameAspect: "0.448",
     en: {
       blurb:
         "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS NEXT.",
@@ -424,7 +436,7 @@ export default function Page() {
                     ))}
                   </div>
                 </div>
-                <Carousel images={p.images} alt={p.name} frame={p.frame} imgPad={p.imgPad} delay={idx * 600} />
+                <Carousel images={p.images} alt={p.name} frame={p.frame} frameAspect={p.frameAspect} imgPad={p.imgPad} delay={idx * 600} />
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="flex items-center gap-4">
                     {p.icon && (
@@ -434,6 +446,18 @@ export default function Page() {
                     )}
                     <h3 className="text-lg font-semibold text-white sm:text-xl">{p.name}</h3>
                   </div>
+                  {p.tags && (
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {p.tags.map((tg) => (
+                        <span
+                          key={tg}
+                          className="rounded-full border border-jade-500/20 bg-ink-900/60 px-2 py-0.5 text-[10px] font-medium text-jade-200/90"
+                        >
+                          {tg}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <p className="mt-4 text-sm leading-relaxed text-gray-200">{p[lang].blurb}</p>
                   {p.link && (
                     <a
