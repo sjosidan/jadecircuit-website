@@ -153,10 +153,9 @@ const PROJECTS: Project[] = [
     name: "Viking Cup 2026",
     kind: "client",
     platforms: ["ios", "android", "web", "hmos"],
-    images: ["/projects/vikingcup-1.jpg", "/projects/vikingcup-2.jpg", "/projects/vikingcup-3.jpg"],
+    images: ["/projects/vikingcup-1.png", "/projects/vikingcup-2.png", "/projects/vikingcup-3.png"],
     icon: "/app-icons/vikingcup.png",
-    frame: "phone",
-    frameAspect: "0.425",
+    imgPad: "p-3",
     en: {
       blurb:
         "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
@@ -172,24 +171,23 @@ const PROJECTS: Project[] = [
     platforms: ["led", "web"],
     images: ["/projects/museum-led-1.jpg", "/projects/museum-led-2.jpg", "/projects/museum-led-3.jpg"],
     imgPad: "p-0",
-    tags: ["Integrated AI", "Electron", "Fastify", "SSE", "SQLite", "Kiosk"],
+    tags: ["Integrated AI", "Electron", "macOS"],
     en: {
       blurb:
-        "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
+        "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron on a Mac mini — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
     },
     zh: {
       blurb:
-        "我为某当代艺术馆一件大型艺术装置所做的部分：一套实时 LED 新闻滚动系统。基于 Fastify + SQLite 的服务端定时抓取全球新闻源，集成 AI 对每条头条进行分类与打标签，并通过 SSE 实时推送到浏览器显示端（以 Electron 封装），驱动展厅的 LED 屏。含可检索的历史归档与全屏 Kiosk 模式。",
+        "我为某当代艺术馆一件大型艺术装置所做的部分：一套实时 LED 新闻滚动系统。基于 Fastify + SQLite 的服务端定时抓取全球新闻源，集成 AI 对每条头条进行分类与打标签，并通过 SSE 实时推送到浏览器显示端（以 Electron 封装，运行于 Mac mini），驱动展厅的 LED 屏。含可检索的历史归档与全屏 Kiosk 模式。",
     },
   },
   {
     name: "Mongi",
     kind: "product",
     platforms: ["ios", "android", "hmos"],
-    images: ["/projects/mongi-1.jpg", "/projects/mongi-2.jpg", "/projects/mongi-3.jpg"],
+    images: ["/projects/mongi-1.png", "/projects/mongi-2.png", "/projects/mongi-3.png"],
     icon: "/app-icons/mongi.png",
-    frame: "phone",
-    frameAspect: "0.46",
+    imgPad: "p-3",
     link: "https://mongi.app",
     en: {
       blurb:
@@ -204,10 +202,9 @@ const PROJECTS: Project[] = [
     name: "SwiftRates",
     kind: "product",
     platforms: ["hmos"],
-    images: ["/projects/swiftrates-1.jpg", "/projects/swiftrates-2.jpg", "/projects/swiftrates-3.jpg"],
+    images: ["/projects/swiftrates-1.png", "/projects/swiftrates-2.png", "/projects/swiftrates-3.png"],
     icon: "/app-icons/swiftrates.png",
-    frame: "phone",
-    frameAspect: "0.608",
+    imgPad: "p-3",
     en: {
       blurb:
         "A currency converter covering 170+ currencies, backed by a Go API with historical rates, geo-aware caching, and live refresh.",
@@ -221,10 +218,9 @@ const PROJECTS: Project[] = [
     name: "NordicKeys",
     kind: "product",
     platforms: ["hmos"],
-    images: ["/projects/nordickeys-1.jpg", "/projects/nordickeys-2.jpg", "/projects/nordickeys-3.jpg"],
+    images: ["/projects/nordickeys-1.png", "/projects/nordickeys-2.png", "/projects/nordickeys-3.png"],
     icon: "/app-icons/nordickeys.png",
-    frame: "phone",
-    frameAspect: "0.448",
+    imgPad: "p-3",
     en: {
       blurb:
         "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS NEXT.",
@@ -434,6 +430,14 @@ export default function Page() {
                     {p.platforms.map((pl) => (
                       <PlatformBadge key={pl} p={pl} lang={lang} />
                     ))}
+                    {p.tags?.map((tg) => (
+                      <span
+                        key={tg}
+                        className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-1 text-xs text-amber-100"
+                      >
+                        {tg}
+                      </span>
+                    ))}
                   </div>
                 </div>
                 <Carousel images={p.images} alt={p.name} frame={p.frame} frameAspect={p.frameAspect} imgPad={p.imgPad} delay={idx * 600} />
@@ -446,18 +450,6 @@ export default function Page() {
                     )}
                     <h3 className="text-lg font-semibold text-white sm:text-xl">{p.name}</h3>
                   </div>
-                  {p.tags && (
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {p.tags.map((tg) => (
-                        <span
-                          key={tg}
-                          className="rounded-full border border-jade-500/20 bg-ink-900/60 px-2 py-0.5 text-[10px] font-medium text-jade-200/90"
-                        >
-                          {tg}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                   <p className="mt-4 text-sm leading-relaxed text-gray-200">{p[lang].blurb}</p>
                   {p.link && (
                     <a
