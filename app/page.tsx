@@ -274,6 +274,7 @@ const COPY = {
     contactTitle: "Let's build something.",
     contactSub: "Inquiries, collaborations, new projects — drop a message.",
     footerCopy: "JadeCircuit OÜ · Estonia",
+    linkLinkedIn: "LinkedIn",
     linkYouTube: "YouTube",
     linkBilibili: "Bilibili",
     linkEmail: "Email",
@@ -302,6 +303,7 @@ const COPY = {
     contactTitle: "一起做点东西吧。",
     contactSub: "业务咨询、合作或新项目 — 欢迎来信。",
     footerCopy: "JadeCircuit OÜ · 爱沙尼亚",
+    linkLinkedIn: "领英",
     linkYouTube: "YouTube",
     linkBilibili: "哔哩哔哩",
     linkEmail: "邮箱",
@@ -519,6 +521,7 @@ export default function Page() {
             <span>© {new Date().getFullYear()} {t.footerCopy}</span>
           </div>
           <div className="flex items-center gap-5 text-sm text-gray-300">
+            <a href="https://www.linkedin.com/company/jadecircuit" target="_blank" rel="noreferrer" className="hover:text-jade-300">{t.linkLinkedIn}</a>
             <a href="https://www.youtube.com/@bobjohansson" target="_blank" rel="noreferrer" className="hover:text-jade-300">{t.linkYouTube}</a>
             <a href="https://space.bilibili.com/3492972752538368" target="_blank" rel="noreferrer" className="hover:text-jade-300">{t.linkBilibili}</a>
             <a href={`mailto:${t.email}`} className="hover:text-jade-300">{t.linkEmail}</a>

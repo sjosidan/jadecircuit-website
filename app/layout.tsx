@@ -68,6 +68,7 @@ const ORG_JSONLD = {
     "Full-stack web development",
   ],
   sameAs: [
+    "https://www.linkedin.com/company/jadecircuit",
     "https://www.youtube.com/@bobjohansson",
     "https://space.bilibili.com/3492972752538368",
   ],
