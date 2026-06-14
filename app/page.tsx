@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type TouchEvent } from "react";
 
-type Platform = "hmos" | "android" | "ios" | "web";
+type Platform = "hmos" | "android" | "ios" | "web" | "led";
 type Kind = "product" | "client";
 type Lang = "en" | "zh";
 
 const PLATFORM_LABEL: Record<Lang, Record<Platform, string>> = {
-  en: { hmos: "HarmonyOS", android: "Android", ios: "iOS", web: "Web" },
-  zh: { hmos: "鸿蒙", android: "安卓", ios: "iOS", web: "网页" },
+  en: { hmos: "HarmonyOS", android: "Android", ios: "iOS", web: "Web", led: "LED" },
+  zh: { hmos: "鸿蒙", android: "安卓", ios: "iOS", web: "网页", led: "LED" },
 };
 
 function PlatformBadge({ p, lang }: { p: Platform; lang: Lang }) {
@@ -44,22 +44,111 @@ type Project = {
   name: string;
   kind: Kind;
   platforms: Platform[];
-  img: string;
-  icon: string;
+  images: string[];
+  icon?: string;
   imgPad?: string;
+  frame?: "phone";
   link?: string;
   en: ProjectCopy;
   zh: ProjectCopy;
 };
+
+function Carousel({
+  images,
+  alt,
+  frame,
+  imgPad,
+  delay,
+}: {
+  images: string[];
+  alt: string;
+  frame?: "phone";
+  imgPad?: string;
+  delay: number;
+}) {
+  const [i, setI] = useState(0);
+  const n = images.length;
+  const touchX = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (n <= 1) return;
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    const id = setInterval(() => setI((p) => (p + 1) % n), 4500 + delay);
+    return () => clearInterval(id);
+  }, [n, delay]);
+
+  const go = (idx: number) => setI(((idx % n) + n) % n);
+
+  const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+    touchX.current = null;
+  };
+
+  const layers = images.map((src, idx) => (
+    <Image
+      key={src}
+      src={src}
+      alt={`${alt} — ${idx + 1}`}
+      fill
+      sizes="(max-width: 768px) 90vw, 45vw"
+      className={`${
+        frame ? "object-cover" : `object-contain ${imgPad ?? "p-6"}`
+      } transition-opacity duration-700 ${idx === i ? "opacity-100" : "opacity-0"}`}
+    />
+  ));
+
+  return (
+    <div
+      className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden bg-gradient-to-br from-ink-700 to-ink-900"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      {frame ? (
+        <div className="relative h-[94%] aspect-[9/19.5] rounded-[1.6rem] bg-black p-[3px] shadow-2xl shadow-black/60 ring-1 ring-white/15">
+          <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-black">
+            {layers}
+          </div>
+        </div>
+      ) : (
+        layers
+      )}
+
+      {n > 1 && (
+        <div className="absolute bottom-2.5 left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              aria-label={`Show image ${idx + 1}`}
+              onClick={() => go(idx)}
+              className={`h-1.5 rounded-full transition-all ${
+                idx === i ? "w-4 bg-jade-300" : "w-1.5 bg-white/40 hover:bg-white/70"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 const PROJECTS: Project[] = [
   {
     name: "Viking Cup 2026",
     kind: "client",
     platforms: ["ios", "android", "web", "hmos"],
-    img: "/projects/vikingcup.png",
+    images: ["/projects/vikingcup-1.jpg", "/projects/vikingcup-2.jpg", "/projects/vikingcup-3.jpg"],
     icon: "/app-icons/vikingcup.png",
-    imgPad: "p-2 sm:p-3",
+    frame: "phone",
     en: {
       blurb:
         "Tournament platform and companion mobile app for an international football event — a full-stack web platform and a cross-platform app (iOS, Android, more) sharing one API, built to integrate cleanly and scale for event week.",
@@ -70,12 +159,27 @@ const PROJECTS: Project[] = [
     },
   },
   {
+    name: "Museum LED Ticker",
+    kind: "client",
+    platforms: ["led", "web"],
+    images: ["/projects/museum-led-1.jpg", "/projects/museum-led-2.jpg", "/projects/museum-led-3.jpg"],
+    imgPad: "p-0",
+    en: {
+      blurb:
+        "My contribution to a large-scale art installation in a contemporary art museum: a live LED news-ticker system. A Fastify + SQLite server polls global news feeds, with integrated AI categorizing and tagging every headline, and streams updates in real time over SSE to a browser display — wrapped in Electron — that drives the gallery's LED panel. Includes a searchable archive and a fullscreen kiosk mode.",
+    },
+    zh: {
+      blurb:
+        "我为某当代艺术馆一件大型艺术装置所做的部分：一套实时 LED 新闻滚动系统。基于 Fastify + SQLite 的服务端定时抓取全球新闻源，集成 AI 对每条头条进行分类与打标签，并通过 SSE 实时推送到浏览器显示端（以 Electron 封装），驱动展厅的 LED 屏。含可检索的历史归档与全屏 Kiosk 模式。",
+    },
+  },
+  {
     name: "Mongi",
     kind: "product",
     platforms: ["ios", "android", "hmos"],
-    img: "/projects/mongi.png",
+    images: ["/projects/mongi-1.jpg", "/projects/mongi-2.jpg", "/projects/mongi-3.jpg"],
     icon: "/app-icons/mongi.png",
-    imgPad: "p-2 sm:p-3",
+    frame: "phone",
     link: "https://mongi.app",
     en: {
       blurb:
@@ -90,9 +194,9 @@ const PROJECTS: Project[] = [
     name: "SwiftRates",
     kind: "product",
     platforms: ["hmos"],
-    img: "/projects/swiftrates.png",
+    images: ["/projects/swiftrates-1.jpg", "/projects/swiftrates-2.jpg", "/projects/swiftrates-3.jpg"],
     icon: "/app-icons/swiftrates.png",
-    imgPad: "p-3 sm:p-4",
+    frame: "phone",
     en: {
       blurb:
         "A currency converter covering 170+ currencies, backed by a Go API with historical rates, geo-aware caching, and live refresh.",
@@ -106,9 +210,9 @@ const PROJECTS: Project[] = [
     name: "NordicKeys",
     kind: "product",
     platforms: ["hmos"],
-    img: "/projects/nordickeys.jpg",
+    images: ["/projects/nordickeys-1.jpg", "/projects/nordickeys-2.jpg", "/projects/nordickeys-3.jpg"],
     icon: "/app-icons/nordickeys.png",
-    imgPad: "p-10 sm:p-14",
+    frame: "phone",
     en: {
       blurb:
         "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS NEXT.",
@@ -307,7 +411,7 @@ export default function Page() {
           <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">{t.workTitle}</h2>
 
           <div className="mt-10 grid gap-6 sm:mt-12 sm:gap-8 md:grid-cols-2">
-            {PROJECTS.map((p) => (
+            {PROJECTS.map((p, idx) => (
               <article
                 key={p.name}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-jade-500/10 bg-ink-800/60 transition hover:border-jade-400/40 hover:bg-ink-800/80"
@@ -320,19 +424,14 @@ export default function Page() {
                     ))}
                   </div>
                 </div>
-                <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden bg-gradient-to-br from-ink-700 to-ink-900">
-                  <Image
-                    src={p.img}
-                    alt={`${p.name} screenshot`}
-                    fill
-                    className={`${p.img.endsWith(".svg") ? "object-cover" : `object-contain ${p.imgPad ?? "p-6"}`}`}
-                  />
-                </div>
+                <Carousel images={p.images} alt={p.name} frame={p.frame} imgPad={p.imgPad} delay={idx * 600} />
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-jade-500/20 bg-ink-900">
-                      <Image src={p.icon} alt={`${p.name} app icon`} width={56} height={56} className="h-14 w-14 object-cover" />
-                    </div>
+                    {p.icon && (
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-jade-500/20 bg-ink-900">
+                        <Image src={p.icon} alt={`${p.name} app icon`} width={56} height={56} className="h-14 w-14 object-cover" />
+                      </div>
+                    )}
                     <h3 className="text-lg font-semibold text-white sm:text-xl">{p.name}</h3>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-gray-200">{p[lang].blurb}</p>
