@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jadecircuit.com"),
   title: "JadeCircuit — Cross-platform app & full-stack studio · EU-registered",
   description:
-    "JadeCircuit is a product studio building cross-platform mobile apps (iOS & Android) and full-stack web, plus the APIs and integrations behind them. Swedish founder, Estonian-registered, EU-ready — with rare HarmonyOS NEXT depth as a specialty.",
+    "JadeCircuit is a product studio building cross-platform mobile apps (iOS & Android) and full-stack web, plus the APIs and integrations behind them. Swedish founder, Estonian-registered, EU-ready — with rare HarmonyOS depth as a specialty.",
   keywords: [
     "HarmonyOS app developer",
     "HarmonyOS app development",
-    "HarmonyOS NEXT",
+    "HarmonyOS",
     "ArkTS",
     "Huawei AppGallery",
     "cross-platform app development",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JadeCircuit — Cross-platform app & full-stack studio",
     description:
-      "Cross-platform apps & full-stack engineering — EU-registered, with rare HarmonyOS NEXT depth.",
+      "Cross-platform apps & full-stack engineering — EU-registered, with rare HarmonyOS depth.",
     url: "https://jadecircuit.com",
     siteName: "JadeCircuit",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JadeCircuit — Cross-platform app & full-stack studio",
     description:
-      "Cross-platform apps & full-stack engineering — EU-registered, with rare HarmonyOS NEXT depth.",
+      "Cross-platform apps & full-stack engineering — EU-registered, with rare HarmonyOS depth.",
     images: ["/og.png"],
   },
   icons: {
@@ -51,13 +51,12 @@ const ORG_JSONLD = {
   logo: "https://jadecircuit.com/logo.png",
   image: "https://jadecircuit.com/og.png",
   description:
-    "Cross-platform app and full-stack studio. HarmonyOS NEXT, iOS, Android and web — an EU-registered partner that helps international companies build and publish HarmonyOS apps.",
+    "Cross-platform app and full-stack studio. HarmonyOS, iOS, Android and web — an EU-registered partner that helps international companies build and publish HarmonyOS apps.",
   email: "hello@jadecircuit.com",
   address: { "@type": "PostalAddress", addressCountry: "EE" },
   areaServed: "Worldwide",
   knowsAbout: [
     "HarmonyOS",
-    "HarmonyOS NEXT",
     "ArkTS",
     "ArkUI",
     "Huawei AppGallery",

@@ -7,12 +7,12 @@ const URL = "https://jadecircuit.com/harmonyos-app-development/";
 export const metadata: Metadata = {
   title: "HarmonyOS App Development for International Companies | JadeCircuit",
   description:
-    "Need a HarmonyOS app but not sure where to start? JadeCircuit is an EU-registered studio that builds and publishes HarmonyOS NEXT apps for international companies — assessment, ArkTS/Flutter build, and Huawei AppGallery release, handled end to end.",
+    "Need a HarmonyOS app but not sure where to start? JadeCircuit is an EU-registered studio that builds and publishes HarmonyOS apps for international companies — assessment, ArkTS/Flutter build, and Huawei AppGallery release, handled end to end.",
   alternates: { canonical: "/harmonyos-app-development/" },
   openGraph: {
     title: "HarmonyOS App Development for International Companies",
     description:
-      "An EU-registered studio that builds and publishes HarmonyOS NEXT apps for international companies — end to end.",
+      "An EU-registered studio that builds and publishes HarmonyOS apps for international companies — end to end.",
     url: URL,
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "JadeCircuit — HarmonyOS App Development" }],
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 const FAQ: { q: string; a: string }[] = [
   {
-    q: "What is HarmonyOS NEXT, and is it different from Android?",
-    a: "HarmonyOS NEXT is Huawei's own operating system, and unlike earlier HarmonyOS versions it no longer runs Android apps. Your existing Android APK will not install on a HarmonyOS NEXT device — reaching those users requires a native build for the platform (ArkTS / ArkUI) or a cross-platform framework that targets it.",
+    q: "What is HarmonyOS, and is it different from Android?",
+    a: "HarmonyOS is now Huawei's own operating system, and it no longer runs Android apps at all. Your existing Android APK won't install on a HarmonyOS device — reaching those users requires a native build (ArkTS / ArkUI) or a cross-platform framework that targets it.",
   },
   {
     q: "Does my company actually need a HarmonyOS app?",
@@ -77,13 +77,13 @@ export default function Page() {
         <div className="grid-lines absolute inset-0 opacity-40" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-jade-300">
-            HarmonyOS NEXT · ArkTS · Huawei AppGallery
+            HarmonyOS · ArkTS · Huawei AppGallery
           </p>
           <h1 className="mt-4 text-3xl font-semibold leading-[1.15] tracking-tight text-white sm:text-5xl">
             HarmonyOS app development for <span className="text-jade-300">international companies</span>.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-200 sm:text-lg">
-            Huawei&apos;s newest phones run HarmonyOS NEXT — and it no longer runs Android apps. If you
+            Huawei&apos;s newest phones run HarmonyOS — and it no longer runs Android apps. If you
             need to reach those users but have no idea where to start, JadeCircuit is the EU-registered
             studio that handles the whole thing: working out whether you need it, building or porting the
             app, and getting it live on the Huawei AppGallery.
@@ -105,7 +105,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">Why this is suddenly on your roadmap</h2>
           <div className="mt-6 space-y-4 text-gray-200">
             <p>
-              Huawei split from Android. Their current devices ship with <strong>HarmonyOS NEXT</strong>, a
+              Huawei split from Android. Their current devices ship with <strong>HarmonyOS</strong>, a
               fully independent operating system that <strong>cannot run Android apps at all</strong> — no
               Google services, no APK sideloading. For the hundreds of millions of people on Huawei
               hardware, your iOS and Android apps simply don&apos;t exist.
@@ -139,11 +139,11 @@ export default function Page() {
         <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">We&apos;ve actually shipped on HarmonyOS</h2>
           <p className="mt-6 text-gray-200">
-            This isn&apos;t theory. We design, build and publish our own apps on HarmonyOS NEXT, so we hit
+            This isn&apos;t theory. We design, build and publish our own apps on HarmonyOS, so we hit
             the same store reviews, tooling quirks and platform changes your project will:
           </p>
           <ul className="mt-6 space-y-3 text-gray-200">
-            <li><strong className="text-white">NordicKeys</strong> — a native HarmonyOS NEXT input method (keyboard) for five Nordic languages, with on-device dictionaries.</li>
+            <li><strong className="text-white">NordicKeys</strong> — a native HarmonyOS input method (keyboard) for five Nordic languages, with on-device dictionaries.</li>
             <li><strong className="text-white">SwiftRates</strong> — a HarmonyOS currency app backed by a Go API with historical rates and live refresh.</li>
             <li><strong className="text-white">Mongi</strong> — a cross-platform puzzle game shipping on HarmonyOS, iOS and Android from one codebase.</li>
           </ul>
@@ -159,7 +159,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-white sm:text-3xl">Why JadeCircuit</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <div><h3 className="font-semibold text-jade-300">A Western partner, in your language</h3><p className="mt-2 text-sm leading-relaxed text-gray-200">Swedish founder, English-first communication, and clear scopes — none of the friction of arranging HarmonyOS work across a language barrier.</p></div>
-            <div><h3 className="font-semibold text-jade-300">Actually inside the ecosystem</h3><p className="mt-2 text-sm leading-relaxed text-gray-200">We work on the ground in Shanghai with first-hand, current experience of HarmonyOS NEXT tooling and the AppGallery — not second-hand guesses.</p></div>
+            <div><h3 className="font-semibold text-jade-300">Actually inside the ecosystem</h3><p className="mt-2 text-sm leading-relaxed text-gray-200">We work on the ground in Shanghai with first-hand, current experience of HarmonyOS tooling and the AppGallery — not second-hand guesses.</p></div>
             <div><h3 className="font-semibold text-jade-300">Clean EU contracting</h3><p className="mt-2 text-sm leading-relaxed text-gray-200">Registered in Estonia, so contracts and invoicing are straightforward wherever in the world you are.</p></div>
             <div><h3 className="font-semibold text-jade-300">Cross-platform too</h3><p className="mt-2 text-sm leading-relaxed text-gray-200">If it makes sense to cover HarmonyOS, iOS and Android together, we can — plus the backend and integrations behind them.</p></div>
           </div>

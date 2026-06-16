@@ -226,11 +226,11 @@ const PROJECTS: Project[] = [
     imgPad: "p-3",
     en: {
       blurb:
-        "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS NEXT.",
+        "A five-language input method editor for the Nordic languages — Swedish, Danish, Norwegian, Finnish and Icelandic — with on-device dictionary suggestions and autocorrect, built natively for HarmonyOS.",
     },
     zh: {
       blurb:
-        "支持五种北欧语言的输入法 — 瑞典语、丹麦语、挪威语、芬兰语与冰岛语，提供本地词典联想与自动纠错，基于鸿蒙 NEXT 原生开发。",
+        "支持五种北欧语言的输入法 — 瑞典语、丹麦语、挪威语、芬兰语与冰岛语，提供本地词典联想与自动纠错，基于鸿蒙 原生开发。",
     },
   },
 ];
@@ -240,13 +240,13 @@ const SERVICES: Record<Lang, { title: string; body: string }[]> = {
     { title: "Cross-platform mobile", body: "iOS and Android from a single Flutter codebase — native feel, multi-language localization, and store release handled." },
     { title: "Full-stack web", body: "Next.js, React and TypeScript front-ends with Postgres / Prisma data layers and modern, reliable deploys." },
     { title: "Backend, APIs & integrations", body: "Go and Node APIs on SQLite / Postgres and Docker — including integrating with existing platforms and third-party services, with careful handling of user data." },
-    { title: "HarmonyOS NEXT", body: "A specialty when you need it: native ArkTS / ArkUI apps for Huawei phones, tablets, foldables and wearables." },
+    { title: "HarmonyOS", body: "A specialty when you need it: native ArkTS / ArkUI apps for Huawei phones, tablets, foldables and wearables." },
   ],
   zh: [
     { title: "跨平台移动端", body: "同一份 Flutter 代码同时发布到 iOS 与 Android — 原生质感、多语言本地化，并负责上架发布。" },
     { title: "全栈 Web", body: "Next.js、React 与 TypeScript 前端，搭配 Postgres / Prisma 数据层与现代、可靠的部署。" },
     { title: "后端、API 与系统集成", body: "基于 SQLite / Postgres 与 Docker 的 Go 与 Node 接口 — 包括与既有平台及第三方服务的对接集成，并谨慎处理用户数据。" },
-    { title: "鸿蒙 NEXT", body: "在你需要时的一项专长：面向华为手机、平板、折叠屏与可穿戴设备的原生 ArkTS / ArkUI 应用。" },
+    { title: "鸿蒙", body: "在你需要时的一项专长：面向华为手机、平板、折叠屏与可穿戴设备的原生 ArkTS / ArkUI 应用。" },
   ],
 };
 
@@ -257,7 +257,7 @@ const COPY = {
     heroTitle1: "We build cross-platform apps and the backends behind them —",
     heroTitle2: " our own products, and select client work.",
     heroSub:
-      "JadeCircuit is a small studio that designs, builds and ships mobile and web products — iOS, Android and full-stack web, with the APIs and integrations behind them. Swedish founder · Estonian-registered company · straightforward international contracts and invoicing. We also bring rare, first-hand HarmonyOS NEXT experience when a project needs it.",
+      "JadeCircuit is a small studio that designs, builds and ships mobile and web products — iOS, Android and full-stack web, with the APIs and integrations behind them. Swedish founder · Estonian-registered company · straightforward international contracts and invoicing. We also bring rare, first-hand HarmonyOS experience when a project needs it.",
     ctaPrimary: "See the work",
     ctaSecondary: "Start a project",
     aboutLabel: "About",
@@ -265,7 +265,7 @@ const COPY = {
     aboutP1:
       "JadeCircuit is led by a Swedish developer building mobile and web products end to end — design, frontend, backend and release. Most of what we make is our own: indie apps we design, build and publish ourselves, which keeps our cross-platform and backend skills sharp for the client work we take on.",
     aboutP2:
-      "The company is registered in Estonia, giving clients a stable European base for clean, straightforward international contracts and invoicing — wherever in the world the project is. We currently work from Shanghai, which also gives us something rare: deep, first-hand experience inside Huawei's HarmonyOS NEXT platform, a specialty we offer on top of the usual iOS, Android and web.",
+      "The company is registered in Estonia, giving clients a stable European base for clean, straightforward international contracts and invoicing — wherever in the world the project is. We currently work from Shanghai, which also gives us something rare: deep, first-hand experience inside Huawei's HarmonyOS platform, a specialty we offer on top of the usual iOS, Android and web.",
     workLabel: "Selected work",
     workTitle: "Products & projects.",
     servicesLabel: "Services",
@@ -286,7 +286,7 @@ const COPY = {
     heroTitle1: "我们打造跨平台应用，以及背后的后端 —",
     heroTitle2: " 自研产品，也承接精选客户项目。",
     heroSub:
-      "JadeCircuit 是一家小型工作室，专注于从设计、开发到发布完整交付移动与 Web 产品 — iOS、Android 与全栈 Web，以及背后的 API 与系统集成。瑞典创始人 · 爱沙尼亚注册公司 · 国际合同与开票简洁顺畅。在项目需要时，我们还能提供少见的鸿蒙 NEXT 一线实战经验。",
+      "JadeCircuit 是一家小型工作室，专注于从设计、开发到发布完整交付移动与 Web 产品 — iOS、Android 与全栈 Web，以及背后的 API 与系统集成。瑞典创始人 · 爱沙尼亚注册公司 · 国际合同与开票简洁顺畅。在项目需要时，我们还能提供少见的鸿蒙 一线实战经验。",
     ctaPrimary: "查看作品",
     ctaSecondary: "开启合作",
     aboutLabel: "关于我们",
@@ -294,7 +294,7 @@ const COPY = {
     aboutP1:
       "JadeCircuit 由一位瑞典开发者主理，从设计、前端、后端到发布，完整地打造移动与 Web 产品。我们做的大多数都是自研的独立应用 — 自己设计、开发并发布，这也让我们在跨平台与后端上的能力始终保持锋利，用于承接的客户项目。",
     aboutP2:
-      "公司注册于爱沙尼亚，为客户提供一个稳定的欧洲主体 — 无论项目身处世界何地，国际合同与开票都简洁顺畅。我们目前在上海工作，这也带来一项难得的能力：深入华为鸿蒙 NEXT 平台的一线实战经验 — 在常规的 iOS、Android 与 Web 之外，我们额外提供这项专长。",
+      "公司注册于爱沙尼亚，为客户提供一个稳定的欧洲主体 — 无论项目身处世界何地，国际合同与开票都简洁顺畅。我们目前在上海工作，这也带来一项难得的能力：深入华为鸿蒙 平台的一线实战经验 — 在常规的 iOS、Android 与 Web 之外，我们额外提供这项专长。",
     workLabel: "精选作品",
     workTitle: "产品与项目。",
     servicesLabel: "服务",

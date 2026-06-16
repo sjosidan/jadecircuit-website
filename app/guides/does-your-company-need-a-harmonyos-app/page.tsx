@@ -7,7 +7,7 @@ const URL = "https://jadecircuit.com/guides/does-your-company-need-a-harmonyos-a
 export const metadata: Metadata = {
   title: "Does Your Company Need a HarmonyOS App? A Guide for Non-Chinese Businesses | JadeCircuit",
   description:
-    "Huawei's HarmonyOS NEXT no longer runs Android apps. A plain-English guide for international companies deciding whether they need a HarmonyOS app — who it's for, who can skip it, and what building one involves.",
+    "Huawei's HarmonyOS no longer runs Android apps. A plain-English guide for international companies deciding whether they need a HarmonyOS app — who it's for, who can skip it, and what building one involves.",
   alternates: { canonical: "/guides/does-your-company-need-a-harmonyos-app/" },
   openGraph: {
     title: "Does Your Company Need a HarmonyOS App?",
@@ -66,7 +66,7 @@ export default function Page() {
           <h2 className="pt-2 text-xl font-semibold text-white">What actually changed</h2>
           <p>
             For years, Huawei phones ran Android, so your existing app just worked on them. That&apos;s
-            over. Huawei&apos;s current devices ship with <strong>HarmonyOS NEXT</strong>, their own
+            over. Huawei&apos;s current devices ship with <strong>HarmonyOS</strong>, their own
             operating system, and it <strong>does not run Android apps</strong> — your APK won&apos;t
             install, and there are no Google services underneath. To exist on those devices at all, you
             need an app built for HarmonyOS and published on Huawei&apos;s <strong>AppGallery</strong>.
